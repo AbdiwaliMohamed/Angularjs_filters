@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta charset="utf8">
+    <title>AngularJS Application</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCtrl",function ($scope,$rootScope) {
+
+            $scope.class=["Marwa","Malaz","Eiman","Emad","Gaidaa","Zahraa","Samah","Fatima","Amal","Safa","Ahmed","Mohamed","Mohamed","Bakri","Mustafa","Mubarak","Ahmed1","Izzeldin"]
+        })
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div class="container">
+
+    <div class="form-group">
+        <input type="search" class="form-control" placeholder="Search" ng-model="x">
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="student in class|filter:x track by $index">
+            {{$index+1}} {{student}}
+        </li>
+    </ul>
+
+</div>
+
+
+
+</body>
+</html>

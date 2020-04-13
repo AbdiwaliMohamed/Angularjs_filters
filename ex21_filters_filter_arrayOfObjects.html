@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="utf8">
+    <title>AngularJS Application</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCtrl",function ($scope,$rootScope) {
+            $scope.students=[
+                {name:"Emad",age:25,addr:"Bahri"},
+                {name:"Mustafa",age:45,addr:"Halfaya"},
+                {name:"Izzeldeen",age:23,addr:"Suba"},
+                {name:"Fatima",age:20,addr:"Khartoim"}
+
+            ]
+        })
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div class="container">
+    <div class="form-group">
+        <input type="search" class="form-control" placeholder="Search" ng-model="x">
+    </div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+        </tr>
+        <tr ng-repeat="student in students|filter:{name:x}">
+            <td>{{$index+1}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.addr}}</td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+</body>
+</html>

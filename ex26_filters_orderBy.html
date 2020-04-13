@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="utf8">
+    <title>AngularJS Application</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script>
+        var app=angular.module("myApp",[])
+        app.controller("myCtrl",function ($scope,$rootScope) {
+            $scope.students=[
+                {name:"Ali",age:15,addr:"Bahri"},
+                {name:"Omer",age:17,addr:"Salha"},
+                {name:"Suhail",age:25,addr:"Buri"},
+                {name:"Alfadil",age:27,addr:"Alamarat"},
+                {name:"Mulhim",age:39,addr:"Alkadro"},
+                {name:"Esraa",age:54,addr:"Omdurman"},
+                {name:"Ammar",age:13,addr:"Kassala"},
+                {name:"Salah",age:18,addr:"Sinnar"},
+                {name:"Mohamed",age:27,addr:"Portsudan"},
+                {name:"Islah",age:43,addr:"Asmara"}
+            ]
+        })
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div class="container">
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Number</th>
+            <th ng-click="x='name'">Name</th>
+            <th ng-click="x='age'">Age</th>
+            <th ng-click="x='addr'">Address</th>
+        </tr>
+        <tr ng-repeat="student in students|orderBy:x">
+            <td>{{$index+1}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.addr}}</td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+</body>
+</html>
